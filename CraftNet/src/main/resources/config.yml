@@ -1,0 +1,3 @@
+socket:
+  port: 8080
+  password: "secure_password"

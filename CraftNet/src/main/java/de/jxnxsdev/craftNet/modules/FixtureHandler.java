@@ -27,6 +27,7 @@ public class FixtureHandler {
     }
 
     public void addFixture(Fixture fixture) {
+        System.out.println("Adding fixture " + fixture.getName());
         fixtures.put(fixture.getId(), fixture);
     }
 

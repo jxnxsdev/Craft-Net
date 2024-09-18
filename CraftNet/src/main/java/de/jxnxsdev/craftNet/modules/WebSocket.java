@@ -24,7 +24,7 @@ public class WebSocket extends WebSocketServer {
         }
 
         if (!clientHandshake.getFieldValue("password").equals(authPassword)) {
-            webSocket.close();
+            webSocket.close(4001, "Invalid Password");
             return;
         }
     }
@@ -36,6 +36,8 @@ public class WebSocket extends WebSocketServer {
 
     @Override
     public void onMessage(org.java_websocket.WebSocket webSocket, String s) {
+        System.out.println("Received Message: " + s);
+
         Gson gson = new Gson();
 
         Message message;

@@ -4,18 +4,26 @@ import de.jxnxsdev.craftNet.fixtures.TestFixture;
 import de.jxnxsdev.craftNet.json.Message;
 import de.jxnxsdev.craftNet.json.Universe;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 public class FixtureHandler {
-    private Map<UUID, Fixture> fixtures;
+    private Map<UUID, Fixture> fixtures = new HashMap<>();
 
     public FixtureHandler() {
-
+        loadFixtures();
     }
 
     public void handleDMXMessage(Message message) {
+        if (fixtures.isEmpty()) {
+            System.out.println("No fixtures to update");
+            return;
+        }
+
+        System.out.println("Updating fixtures");
+
         List<Universe> universes = message.getData();
         for (Universe universe : universes) {
             for (Fixture fixture : fixtures.values()) {

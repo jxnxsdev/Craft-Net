@@ -86,9 +86,11 @@ async function main() {
         const controller = new ArtNetController();
         controller.bind(process.env.ARTNET_BIND_IP);
 
-        controller.on('dmx', (dmx) => {
+        controller.on('dmx', async (dmx) => {
             const uni = dmx.universe;
             const data = dmx.data;
+
+            console.log(`Received DMX data for universe ${uni}:`, data);
 
             let channels = [];
 
@@ -100,7 +102,7 @@ async function main() {
             }
 
             let universe = {
-                id: uni,
+                id: await parseInt(uni),
                 channels: channels
             }
 

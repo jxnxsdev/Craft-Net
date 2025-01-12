@@ -27,6 +27,8 @@ public class WebSocket extends WebSocketServer {
             webSocket.close(4001, "Invalid Password");
             return;
         }
+
+        CraftNet.getInstance().getLogger().info("WebSocket Connection Established!");
     }
 
     @Override
@@ -36,7 +38,7 @@ public class WebSocket extends WebSocketServer {
 
     @Override
     public void onMessage(org.java_websocket.WebSocket webSocket, String s) {
-        System.out.println("Received Message: " + s);
+        s = s.substring(1, s.length() - 1).replaceAll("\\\\", "");
 
         Gson gson = new Gson();
 

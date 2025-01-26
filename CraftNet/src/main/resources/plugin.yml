@@ -6,3 +6,6 @@ commands:
   createglasslight:
     description: Create a glass light
     permission: craftnet.createglasslight
+  deletefixture:
+    description: Delete a fixture
+    permission: craftnet.deletefixture

@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -59,6 +60,17 @@ public class FixtureHandler {
         fixtures.get(id).deleteSelf();
         fixtures.remove(id);
         saveFixtures();
+    }
+
+    public void removeFixture(Location location) {
+        for (Fixture fixture : fixtures.values()) {
+            if (fixture.getPosition().equals(location)) {
+                fixture.deleteSelf();
+                fixtures.remove(fixture.getId());
+                saveFixtures();
+                return;
+            }
+        }
     }
 
 

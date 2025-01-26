@@ -40,8 +40,12 @@ public abstract class Fixture {
     }
 
     public void updateValues(Universe universe) {
+
         for (int i = 0; i < channels; i++) {
-            Channel channel = universe.getChannels().get(i);
+            if (i + startChannel >= universe.getChannels().size()) {
+                break;
+            }
+            Channel channel = universe.getChannels().get(i + startChannel);
             values[i] = channel.getValue();
         }
 

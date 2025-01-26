@@ -1,5 +1,7 @@
 package de.jxnxsdev.craftNet;
 
+import de.jxnxsdev.craftNet.commands.CreateGlassLight;
+import de.jxnxsdev.craftNet.commands.CreateGlassLightTabCompletor;
 import de.jxnxsdev.craftNet.modules.FixtureHandler;
 import de.jxnxsdev.craftNet.modules.WebSocket;
 import lombok.Getter;
@@ -31,6 +33,9 @@ public final class CraftNet extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        getCommand("createglasslight").setExecutor(new CreateGlassLight());
+        getCommand("createglasslight").setTabCompleter(new CreateGlassLightTabCompletor());
+
         initializePlugin();
         initializeWebSocket();
     }

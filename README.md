@@ -13,4 +13,4 @@ This plugin allows you to cotrol lighting inside Minecraft using Art-Net.
 3. Download the Middleware client onto a computer inside a network your ArtNet sender is running in
 4. Set tne bind ip in the .env to the computers IP on the correct network adapter
 5. Set the server ip, port and password inside the .env
-6. Build and run th Middleware
+6. Build and run the Middleware
